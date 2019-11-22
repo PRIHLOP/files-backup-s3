@@ -41,7 +41,7 @@ copy_s3 () {
 echo "Creating archive..."
 
 ARCHIVE_FILE="/tmp/backup.tar.gz"
-tar -cf $ARCHIVE_FILE /backup/*
+tar -czf $ARCHIVE_FILE /backup/*
 
 if [ $? == 0 ]; then
   if [ "${S3_FILENAME}" == "**None**" ]; then
