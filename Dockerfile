@@ -15,6 +15,7 @@ ENV S3_ENDPOINT **None**
 ENV S3_S3V4 no
 ENV S3_PREFIX 'files-backup'
 ENV S3_FILENAME **None**
+ENV S3_FILEPREFIX **None**
 ENV SCHEDULE **None**
 
 ADD run.sh run.sh

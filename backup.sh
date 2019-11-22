@@ -41,7 +41,7 @@ copy_s3 () {
 echo "Creating archive..."
 
 ARCHIVE_FILE="/tmp/backup.tar.gz"
-tar --use-compress-program="pigz -p $CPU_CORE_NUM" -cf $ARCHIVE_FILE /backup/*
+tar -cf $ARCHIVE_FILE /backup/*
 
 if [ $? == 0 ]; then
   if [ "${S3_FILENAME}" == "**None**" ]; then
@@ -49,6 +49,13 @@ if [ $? == 0 ]; then
   else
     S3_FILE="${S3_FILENAME}.tar.gz"
   fi
+
+  if [ "${S3_FILEPREFIX}" == "**None**" ]; then
+  continue
+  else
+    S3_FILE="${S3_FILEPREFIX}.${S3_FILE}"
+  fi
+
   copy_s3 $ARCHIVE_FILE $S3_FILE
 else
   >&2 echo "Error creating backup"

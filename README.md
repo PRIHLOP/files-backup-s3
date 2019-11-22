@@ -18,7 +18,6 @@ $ docker run -e S3_ACCESS_KEY_ID=key -e S3_SECRET_ACCESS_KEY=secret -e S3_BUCKET
 - `S3_ENDPOINT` the AWS Endpoint URL, for S3 Compliant APIs such as [minio](https://minio.io) (default: none)
 - `S3_S3V4` set to `yes` to enable AWS Signature Version 4, required for [minio](https://minio.io) servers (default: no)
 - `SCHEDULE` backup schedule time, see explainatons below
-- `CPU_CORE_NUM` number of CPU cores to use for creating backup archive
 
 
 ### Automatic Periodic Backups
